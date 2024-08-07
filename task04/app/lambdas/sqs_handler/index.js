@@ -1,7 +1,7 @@
 exports.handler = async (event) => {
-  const response = {
+  console.log("SQS Message:", event.Records[0].body);
+  return {
     statusCode: 200,
-    message: "Hello from Lambda!",
+    body: JSON.stringify({ message: "SQS message processed successfully" }),
   };
-  return response;
 };
