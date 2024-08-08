@@ -2,12 +2,13 @@
   "version": "1.0",
   "name": "sqs_handler",
   "lambda_path": "lambdas/sqs_handler",
-  "func_name": "lambdas/sqs_handler/sqs_handler.handler",
+  "func_name": "lambdas/sqs_handler/index.handler",
   "resource_type": "lambda",
   "iam_role_name": "sqs_handler-role",
   "runtime": "nodejs20.x",
   "memory": 128,
   "timeout": 300,
+  "max_concurrency": 1,
   "dependencies": [
     {
       "resource_type": "sqs_queue",

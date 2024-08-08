@@ -1,17 +1,18 @@
 {
   "version": "1.0",
   "name": "sns_handler",
-  "func_name": "lambdas/sns_handler/sns_handler.handler",
+  "func_name": "lambdas/sns_handler/index.handler",
   "resource_type": "lambda",
   "iam_role_name": "sns_handler-role",
   "runtime": "nodejs20.x",
   "memory": 128,
   "timeout": 300,
+  "max_concurrency": 1,
   "lambda_path": "lambdas/sns_handler",
   "dependencies": [],
   "event_sources": [
     {
-      "resource_type": "sns_handler_trigger",
+      "resource_type": "sns_topic_trigger",
       "target_topic": "lambda_topic",
       "region": "eu-central-1"
     }
