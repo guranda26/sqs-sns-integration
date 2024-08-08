@@ -30,7 +30,15 @@
       ],
       "Version": "2012-10-17"
     },
-    "resource_type": "iam_policy"
+    "resource_type": "iam_policy",
+    "event_sources": [
+      {
+        "resource_type": "sqs_trigger",
+        "target_queue": "async_queue",
+        "batch_size": 100,
+        "function_response_types": ["ReportBatchItemFailures"]
+      }
+    ]
   },
   "async_queue": {
     "resource_type": "sqs_queue",
@@ -44,13 +52,7 @@
     "policy": {},
     "redrive_policy": {},
     "content_based_deduplication": false,
-    "event_sources": [
-      {
-        "resource_type": "sqs_trigger",
-        "target_queue": "async_queue",
-        "batch_size": 10
-      }
-    ]
+    "event_sources": []
   },
   "lambda_topic": {
     "resource_type": "sns_topic",
