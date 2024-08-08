@@ -3,27 +3,28 @@
     "policy_content": {
       "Statement": [
         {
+          "Effect": "Allow",
           "Action": [
             "logs:CreateLogGroup",
             "logs:CreateLogStream",
             "logs:PutLogEvents",
-            "ssm:PutParameter",
-            "ssm:GetParameter"
+            "lambda:CreateFunction",
+            "lambda:GetFunction",
+            "lambda:UpdateFunctionCode",
+            "lambda:UpdateFunctionConfiguration",
+            "lambda:GetEventSourceMapping",
+            "lambda:ListFunctions",
+            "lambda:CreateEventSourceMapping",
+            "sqs:ReceiveMessage",
+            "sqs:DeleteMessage",
+            "sqs:GetQueueAttributes"
           ],
-          "Effect": "Allow",
           "Resource": "*"
         }
       ],
       "Version": "2012-10-17"
     },
-    "resource_type": "iam_policy",
-    "event_sources": [
-      {
-        "resource_type": "sqs_trigger",
-        "target_queue": "async_queue",
-        "batch_size": 10
-      }
-    ]
+    "resource_type": "iam_policy"
   },
   "async_queue": {
     "resource_type": "sqs_queue",
@@ -36,6 +37,31 @@
     "receive_message_wait_time_seconds": 20,
     "policy": {},
     "redrive_policy": {},
-    "content_based_deduplication": false
+    "content_based_deduplication": false,
+    "event_sources": [
+      {
+        "resource_type": "sqs_trigger",
+        "target_queue": "async_queue",
+        "batch_size": 10
+      }
+    ]
+  },
+  "sns_handler": {
+    "resource_type": "aws_lambda",
+    "name": "sns_handler",
+    "handler": "sns_handler.handler",
+    "runtime": "nodejs",
+    "triggers": [
+      {
+        "type": "sns",
+        "name": "lambda_topic",
+        "arn": "!GetAtt LambdaTopic.Arn"
+      }
+    ]
+  },
+  "lambda_topic": {
+    "resource_type": "sns_topic",
+    "region": "eu-central-1",
+    "event_sources": []
   }
 }
