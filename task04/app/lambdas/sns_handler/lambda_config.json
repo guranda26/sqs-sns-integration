@@ -14,10 +14,6 @@
       "resource_type": "sns_handler_trigger",
       "target_topic": "lambda_topic",
       "region": "eu-central-1"
-    },
-    {
-      "resource_type": "cloudwatch_rule_trigger",
-      "target_rule": "active"
     }
   ],
   "env_variables": {},

@@ -8,5 +8,3 @@ exports.handler = async (event) => {
     body: JSON.stringify({ message: "SQS message processed successfully" }),
   };
 };
-// @SqsTriggerEventSource(targetQueue = 'async_queue', batchSize=10)
-// @LambdaHandler(lambdaName = 'sqs_handler', roleName='sqs_handler-role', isPublichVersion = false, logsExpiration = RetentionSetting.SYNDICATE_ALIASES_SPECIFIED)
