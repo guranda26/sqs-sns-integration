@@ -5,11 +5,6 @@
         {
           "Effect": "Allow",
           "Action": [
-            "s3:PutObject",
-            "s3:PutObjectAcl",
-            "s3:GetObject",
-            "s3:GetObjectAcl",
-            "s3:DeleteObject",
             "logs:CreateLogGroup",
             "logs:CreateLogStream",
             "logs:PutLogEvents",
@@ -24,12 +19,7 @@
             "lambda:DeleteEventSourceMapping",
             "sqs:ReceiveMessage",
             "sqs:DeleteMessage",
-            "sqs:GetQueueAttributes",
-            "iam:AttachRolePolicy",
-            "iam:DetachRolePolicy",
-            "logs:CreateLogGroup",
-            "logs:CreateLogStream",
-            "logs:PutLogEvents"
+            "sqs:GetQueueAttributes"
           ],
           "Resource": "*"
         }
@@ -42,6 +32,7 @@
         "resource_type": "sqs_trigger",
         "target_queue": "async_queue",
         "batch_size": 100,
+        "batch_window": 10,
         "function_response_types": ["ReportBatchItemFailures"]
       },
       {
