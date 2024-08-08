@@ -5,13 +5,12 @@
         {
           "Effect": "Allow",
           "Action": [
-            "sqs:ReceiveMessage",
-            "sqs:DeleteMessage",
-            "sqs:GetQueueAttributes",
-            "sqs:GetQueueUrl",
             "logs:PutLogEvents",
             "logs:CreateLogStream",
             "logs:CreateLogGroup",
+            "sqs:GetQueueAttributes",
+            "sqs:GetQueueUrl",
+            "sqs:ReceiveMessage",
             "lambda:CreateFunction",
             "lambda:GetFunction",
             "lambda:UpdateFunctionCode",
@@ -19,8 +18,7 @@
             "lambda:GetEventSourceMapping",
             "lambda:ListFunctions",
             "lambda:ListEventSourceMappings",
-            "lambda:CreateEventSourceMapping",
-            "lambda:DeleteEventSourceMapping"
+            "lambda:CreateEventSourceMapping"
           ],
           "Resource": "*"
         }
@@ -28,12 +26,7 @@
       "Version": "2012-10-17"
     },
     "resource_type": "iam_policy",
-    "dependencies": [
-      {
-        "resource_name": "async_queue",
-        "resource_type": "sqs_queue"
-      }
-    ],
+    "dependencies": [],
     "event_sources": []
   },
   "async_queue": {
