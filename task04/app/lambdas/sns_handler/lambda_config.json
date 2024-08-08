@@ -1,15 +1,25 @@
 {
   "version": "1.0",
   "name": "sns_handler",
-  "func_name": "lambdas/sns_handler/index.handler",
+  "func_name": "lambdas/sns_handler/sns_handler.handler",
   "resource_type": "lambda",
   "iam_role_name": "sns_handler-role",
   "runtime": "nodejs20.x",
   "memory": 128,
-  "timeout": 100,
+  "timeout": 300,
   "lambda_path": "lambdas/sns_handler",
   "dependencies": [],
-  "event_sources": [],
+  "event_sources": [
+    {
+      "resource_type": "sns_handler_trigger",
+      "target_topic": "lambda_topic",
+      "region": "eu-central-1"
+    },
+    {
+      "resource_type": "cloudwatch_rule_trigger",
+      "target_rule": "active"
+    }
+  ],
   "env_variables": {},
   "publish_version": false,
   "url_config": {},
