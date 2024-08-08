@@ -24,7 +24,12 @@
             "lambda:DeleteEventSourceMapping",
             "sqs:ReceiveMessage",
             "sqs:DeleteMessage",
-            "sqs:GetQueueAttributes"
+            "sqs:GetQueueAttributes",
+            "iam:AttachRolePolicy",
+            "iam:DetachRolePolicy",
+            "logs:CreateLogGroup",
+            "logs:CreateLogStream",
+            "logs:PutLogEvents"
           ],
           "Resource": "*"
         }
