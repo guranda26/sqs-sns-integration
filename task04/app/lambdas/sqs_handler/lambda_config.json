@@ -8,7 +8,6 @@
   "runtime": "nodejs20.x",
   "memory": 128,
   "timeout": 300,
-  "max_concurrency": 1,
   "dependencies": [
     {
       "resource_type": "sqs_queue",
