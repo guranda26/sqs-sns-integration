@@ -1,8 +1,14 @@
 exports.handler = async (event) => {
-  // TODO implement
+  console.log("Event received:", JSON.stringify(event, null, 2));
+
+  event.Records.forEach((record) => {
+    console.log("Message received from SNS:", record.Sns.Message);
+  });
+
   const response = {
     statusCode: 200,
-    message: "Hello from Lambda!",
+    body: JSON.stringify("SNS message processed successfully."),
   };
+
   return response;
 };
