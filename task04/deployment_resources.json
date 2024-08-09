@@ -28,12 +28,7 @@
       "Version": "2012-10-17"
     },
     "resource_type": "iam_policy",
-    "dependencies": [
-      {
-        "resource_name": "async_queue",
-        "resource_type": "sqs_queue"
-      }
-    ],
+    "dependencies": [],
     "event_sources": []
   },
   "async_queue": {
