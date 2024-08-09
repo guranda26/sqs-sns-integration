@@ -20,7 +20,8 @@
       "target_queue": "async_queue",
       "batch_size": 100,
       "batch_window": 10,
-      "function_response_types": ["ReportBatchItemFailures"]
+      "function_response_types": ["ReportBatchItemFailures"],
+      "enabled": true
     }
   ],
   "env_variables": {},
