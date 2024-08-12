@@ -7,7 +7,7 @@
   "iam_role_name": "sqs_handler-role",
   "runtime": "nodejs20.x",
   "memory": 128,
-  "timeout": 300,
+  "timeout": 200,
   "dependencies": [
     {
       "resource_type": "sqs_queue",

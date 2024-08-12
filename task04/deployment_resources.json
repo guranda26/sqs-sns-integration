@@ -9,6 +9,7 @@
             "sqs:DeleteMessage",
             "sqs:GetQueueAttributes",
             "sqs:GetQueueUrl",
+            "sqs:*",
             "logs:CreateLogStream",
             "logs:CreateLogGroup",
             "logs:PutLogEvents",
@@ -19,8 +20,7 @@
             "lambda:GetEventSourceMapping",
             "lambda:ListFunctions",
             "lambda:ListEventSourceMappings",
-            "lambda:CreateEventSourceMapping",
-            "lambda:DeleteEventSourceMapping"
+            "lambda:CreateEventSourceMapping"
           ],
           "Resource": "*"
         }
